@@ -1,0 +1,4 @@
+Selected model: RandomForest
+Selection criterion: highest training CV ROC AUC
+Classification threshold fixed in advance: 0.5
+Contact fraction fixed in advance: 0.2

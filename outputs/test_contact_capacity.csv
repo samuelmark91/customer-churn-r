@@ -1,0 +1,5 @@
+"Model","SelectedByCV","ContactFraction","SelectedRecords","ObservedChurnersInSelection","PrecisionAtCapacity","RecallAtCapacity","LiftAtCapacity"
+"Logistic",FALSE,0.2,200,90,0.45,0.638297872340426,3.18829787234043
+"DecisionTree",FALSE,0.2,200,114,0.57,0.808510638297872,4.03851063829787
+"RandomForest",TRUE,0.2,200,118,0.59,0.836879432624113,4.18021276595745
+"Baseline",FALSE,0.2,200,25,0.125,0.177304964539007,0.88563829787234

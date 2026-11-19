@@ -1,0 +1,8 @@
+"Package","Version"
+"modeldata","1.4.0"
+"caret","7.0.1"
+"rpart","4.1.23"
+"randomForest","4.7.1.1"
+"pROC","1.18.5"
+"ggplot2","3.5.2"
+"e1071","1.7.16"
