@@ -74,7 +74,7 @@ plot_segments <- ggplot(segments, aes(InternationalPlan, ChurnRate)) +
                      expand = expansion(mult = c(0, 0.22))) +
   labs(title = "Churn by international plan", subtitle = "Training records only; observed association",
        x = "International plan", y = "Observed churn rate") + theme_minimal(base_size = 12)
-ggsave(file.path("outputs", "01_plan_segments.png"), plot_segments, width = 8, height = 5, dpi = 160)
+ggsave(file.path("outputs", "01_plan_segments.png"), plot_segments, width = 8, height = 5, dpi = 160,bg = "white")
 
 # 4. Identical five-fold training resamples for all models.
 # This is a declared 13-predictor design, with no learned preprocessing.
@@ -159,7 +159,7 @@ plot_roc <- ggplot(roc_lines, aes(FalsePositiveRate, TruePositiveRate, color = M
                        subtitle = paste("Model selected using training CV:", chosen),
                        x = "False-positive rate", y = "Recall (true-positive rate)") +
   theme_minimal(base_size = 12) + theme(legend.position = "bottom")
-ggsave(file.path("outputs", "02_test_roc.png"), plot_roc, width = 8, height = 6, dpi = 160)
+ggsave(file.path("outputs", "02_test_roc.png"), plot_roc, width = 8, height = 6, dpi = 160,bg = "white")
 
 capacity_long <- rbind(data.frame(Model = contact$Model, Metric = "Precision", Value = contact$PrecisionAtCapacity),
                        data.frame(Model = contact$Model, Metric = "Recall", Value = contact$RecallAtCapacity))
@@ -170,7 +170,7 @@ plot_capacity <- ggplot(capacity_long, aes(Model, Value, fill = Metric)) +
   labs(title = "What does a 20% contact list capture?",
        subtitle = "Ranked by predicted churn risk; held-out records",
        x = NULL, y = "Share") + theme_minimal(base_size = 12) + theme(legend.position = "bottom")
-ggsave(file.path("outputs", "03_contact_capacity.png"), plot_capacity, width = 8, height = 5, dpi = 160)
+ggsave(file.path("outputs", "03_contact_capacity.png"), plot_capacity, width = 8, height = 5, dpi = 160,bg = "white")
 
 chosen_probability <- probabilities[[chosen]]
 rank_index <- order(-chosen_probability, seq_along(chosen_probability))
@@ -186,7 +186,7 @@ plot_gains <- ggplot(gains, aes(ContactShare, ChurnerShare)) +
   labs(title = "Cumulative capture of observed churners", subtitle = paste(chosen, "| dashed line: random selection"),
        x = "Share of test records contacted", y = "Share of observed churners captured") +
   theme_minimal(base_size = 12)
-ggsave(file.path("outputs", "04_cumulative_gains.png"), plot_gains, width = 8, height = 5, dpi = 160)
+ggsave(file.path("outputs", "04_cumulative_gains.png"), plot_gains, width = 8, height = 5, dpi = 160,bg = "white")
 
 importance <- as.data.frame(caret::varImp(models[[chosen]], scale = TRUE)$importance)
 importance_score <- if ("Overall" %in% names(importance)) importance$Overall else
